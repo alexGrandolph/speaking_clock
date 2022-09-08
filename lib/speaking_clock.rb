@@ -12,10 +12,6 @@ class SpeakingClock
     if diggit_arr.last.end_with?('0')  || diggit_arr.last.end_with?('5') 
       if diggit_arr.last == "00"
         double_zeros(diggit_arr)
-        # first_string = "#{diggit_arr[0].to_i.humanize}"
-        # second_string = "o'clock"
-        # "#{first_string} #{second_string}"
-      
       elsif diggit_arr.last.to_i <= 25
         past_the_hour(diggit_arr)
       
@@ -38,7 +34,7 @@ class SpeakingClock
         "quarter past #{re_humanize(diggit_arr[0].to_i)}"
       else  
         first_string = "#{re_humanize(diggit_arr.last.to_i)}"
-        second_string = "past #{diggit_arr[0].to_i.humanize}"
+        second_string = "past #{re_humanize(diggit_arr[0].to_i)}"
         "#{first_string} #{second_string}"
       end   
     end 
@@ -61,7 +57,7 @@ class SpeakingClock
       elsif diggit_arr[0] == '12'
         "noon"
       else
-        first_string = "#{diggit_arr[0].to_i.humanize}"
+        first_string = "#{re_humanize(diggit_arr[0].to_i)}"
         second_string = "o'clock"
         "#{first_string} #{second_string}"
       end   
