@@ -70,4 +70,20 @@ RSpec.describe 'Speaking Clock Challenge' do
 
   end 
 
+  it 'It returns noon or midnight when given' do
+
+    time1 = '00:00'
+    time2 = '12:00'
+    time3 = '1:00'
+
+    speaker1 = SpeakingClock.speak(time1)
+    speaker2 = SpeakingClock.speak(time2)
+    speaker3 = SpeakingClock.speak(time3)
+
+    expect(speaker1).to eq("midnight")
+    expect(speaker2).to eq("noon")
+    expect(speaker3).to eq("one o'clock")
+
+  end 
+
 end

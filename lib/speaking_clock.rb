@@ -21,6 +21,7 @@ class SpeakingClock
       elsif diggit_arr.last.to_i >= 35
         to_the_hour(diggit_arr)
       end 
+      
     else 
       first_string = "#{re_humanize(diggit_arr[0].to_i)}"
       second_string = "#{re_humanize(diggit_arr.last.to_i)}"
