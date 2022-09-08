@@ -86,4 +86,19 @@ RSpec.describe 'Speaking Clock Challenge' do
 
   end 
 
+  it 'returns quarter until or quarter past for minutes equal to 15' do
+    
+    time1 = '4:15'
+    time2 = '9:45'
+
+
+    speaker1 = SpeakingClock.speak(time1)
+    speaker2 = SpeakingClock.speak(time2)
+
+    expect(speaker1).to eq("quarter past four")
+    expect(speaker2).to eq("quarter to ten")
+
+
+  end
+
 end
