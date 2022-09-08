@@ -2,14 +2,11 @@ require 'humanize'
 
 class SpeakingClock
 
-  def initialize
-  end 
-
   def re_humanize(number)
    number.humanize.gsub('-', ' ')
   end 
 
-  def speak(digits)
+  def self.speak(digits)
     diggit_arr = digits.split(":")
     if diggit_arr.last == "00"
       first_string = "#{diggit_arr[0].to_i.humanize}"
