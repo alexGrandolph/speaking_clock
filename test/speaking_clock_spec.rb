@@ -54,4 +54,20 @@ RSpec.describe 'Speaking Clock Challenge' do
     expect(speaker4).to eq("five to twelve")
   end
 
+  it 'If the minutes do not end in 0 or 5 it returns the exact time' do
+
+    time1 = '6:32'
+    time2 = '5:17'
+    time3 = '11:47'
+
+    speaker1 = SpeakingClock.speak(time1)
+    speaker2 = SpeakingClock.speak(time2)
+    speaker3 = SpeakingClock.speak(time3)
+
+    expect(speaker1).to eq("six thirty two")
+    expect(speaker2).to eq("five seventeen")
+    expect(speaker3).to eq("elevent fourty seven")
+
+  end 
+
 end
