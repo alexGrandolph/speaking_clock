@@ -24,11 +24,12 @@ RSpec.describe 'Speaking Clock Challenge' do
     time1 = '4:05'
     time2 = '3:10'
     time3 = '5:20'
-    time3 = '6:25'
+    time4 = '6:25'
 
     speaker1 = SpeakingClock.speak(time1)
     speaker2 = SpeakingClock.speak(time2)
     speaker3 = SpeakingClock.speak(time3)
+    speaker4 = SpeakingClock.speak(time4)
 
     expect(speaker1).to eq("five past four")
     expect(speaker2).to eq("ten past three")

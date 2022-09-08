@@ -2,7 +2,7 @@ require 'humanize'
 
 class SpeakingClock
 
-  def re_humanize(number)
+  def self.re_humanize(number)
    number.humanize.gsub('-', ' ')
   end 
 
