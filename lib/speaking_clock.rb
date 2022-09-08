@@ -11,9 +11,10 @@ class SpeakingClock
     
     if diggit_arr.last.end_with?('0')  || diggit_arr.last.end_with?('5') 
       if diggit_arr.last == "00"
-        first_string = "#{diggit_arr[0].to_i.humanize}"
-        second_string = "o'clock"
-        "#{first_string} #{second_string}"
+        double_zeros(diggit_arr)
+        # first_string = "#{diggit_arr[0].to_i.humanize}"
+        # second_string = "o'clock"
+        # "#{first_string} #{second_string}"
       
       elsif diggit_arr.last.to_i <= 25
         past_the_hour(diggit_arr)
@@ -21,7 +22,7 @@ class SpeakingClock
       elsif diggit_arr.last.to_i >= 35
         to_the_hour(diggit_arr)
       end 
-      
+
     else 
       first_string = "#{re_humanize(diggit_arr[0].to_i)}"
       second_string = "#{re_humanize(diggit_arr.last.to_i)}"
@@ -45,6 +46,18 @@ class SpeakingClock
       second_string = "to #{re_humanize(hour)}"
       "#{first_string} #{second_string}"
     end 
-  
+
+    def self.double_zeros(diggit_arr)
+      if diggit_arr[0] == '00'
+        "midnight"
+      elsif diggit_arr[0] == '12'
+        "noon"
+      else
+        first_string = "#{diggit_arr[0].to_i.humanize}"
+        second_string = "o'clock"
+        "#{first_string} #{second_string}"
+      end   
+
+    end 
   
 end
