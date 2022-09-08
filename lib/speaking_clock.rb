@@ -11,23 +11,29 @@ class SpeakingClock
     if diggit_arr.last == "00"
       first_string = "#{diggit_arr[0].to_i.humanize}"
       second_string = "o'clock"
+      "#{first_string} #{second_string}"
     elsif diggit_arr.last.to_i <= 25
-      first_string = "#{re_humanize(diggit_arr.last.to_i)}"
-      second_string = "past #{diggit_arr[0].to_i.humanize}"
-
+      past_the_hour(diggit_arr)
+    
     elsif diggit_arr.last.to_i >= 35
-      minutes_until = 60 - diggit_arr.last.to_i
-      hour = diggit_arr[0].to_i + 1
-      first_string = "#{re_humanize(minutes_until)}"
-      second_string = "to #{re_humanize(hour)}"
+      to_the_hour(diggit_arr)
     end 
 
+  end 
+
+  def self.past_the_hour(diggit_arr)
+    first_string = "#{re_humanize(diggit_arr.last.to_i)}"
+    second_string = "past #{diggit_arr[0].to_i.humanize}"
     "#{first_string} #{second_string}"
-  
+  end 
+
+  def self.to_the_hour(diggit_arr)
+    minutes_until = 60 - diggit_arr.last.to_i
+    hour = diggit_arr[0].to_i + 1
+    first_string = "#{re_humanize(minutes_until)}"
+    second_string = "to #{re_humanize(hour)}"
+    "#{first_string} #{second_string}"
   end 
   
   
 end
-
-      # number_to_subtract = diggit_arr.last.to_i
-      # first string = "#{60 - re_humanize(number_to_subtract)}"
