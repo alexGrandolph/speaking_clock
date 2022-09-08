@@ -49,7 +49,7 @@ RSpec.describe 'Speaking Clock Challenge' do
     speaker4 = SpeakingClock.speak(time4)
 
     expect(speaker1).to eq("twenty five to eight")
-    expect(speaker2).to eq("twenty to eight")
+    expect(speaker2).to eq("twenty to nine")
     expect(speaker3).to eq("ten to eleven")
     expect(speaker4).to eq("five to twelve")
   end
