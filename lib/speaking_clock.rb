@@ -34,17 +34,25 @@ class SpeakingClock
   private
 
     def self.past_the_hour(diggit_arr)
-      first_string = "#{re_humanize(diggit_arr.last.to_i)}"
-      second_string = "past #{diggit_arr[0].to_i.humanize}"
-      "#{first_string} #{second_string}"
+      if diggit_arr.last == "15"
+        "quarter past #{re_humanize(diggit_arr[0].to_i)}"
+      else  
+        first_string = "#{re_humanize(diggit_arr.last.to_i)}"
+        second_string = "past #{diggit_arr[0].to_i.humanize}"
+        "#{first_string} #{second_string}"
+      end   
     end 
 
     def self.to_the_hour(diggit_arr)
-      minutes_until = 60 - diggit_arr.last.to_i
       hour = diggit_arr[0].to_i + 1
-      first_string = "#{re_humanize(minutes_until)}"
-      second_string = "to #{re_humanize(hour)}"
-      "#{first_string} #{second_string}"
+      if diggit_arr.last == "45"
+        "quarter to #{re_humanize(hour)}"
+      else  
+        minutes_until = 60 - diggit_arr.last.to_i
+        first_string = "#{re_humanize(minutes_until)}"
+        second_string = "to #{re_humanize(hour)}"
+        "#{first_string} #{second_string}"
+      end 
     end 
 
     def self.double_zeros(diggit_arr)
